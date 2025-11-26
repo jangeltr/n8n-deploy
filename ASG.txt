@@ -1,0 +1,107 @@
+La empresa debe proporcionar información sobre su impacto en el medio ambiente, 
+su consumo de recursos y sus acciones de mitigación.
+
+Nombre de Empresa:
+Giro:
+
+a) Uso de energía
+Consumo total de energía (kWh, litros de combustible, etc.) por periodo:
+Porcentaje aproximado de energía renovable utilizada:
+Cuenta con politicas de uso eficiente y ahorro de  energia Si/No:
+
+b) Emisiones
+Huella de carbono (CO₂ equivalente — Alcance 1, 2 y si es posible 3):
+Emisiones de contaminantes (NOx, SO₂, partículas):
+Cuenta con planes de reducción de emisiones Si/No:
+
+c) Agua
+Consumo total de agua por año: 
+Origen del agua que se utiliza (pozo, red pública, captación pluvial):
+Realiza tratamiento y reuso del agua Si/No:
+
+d) Residuos
+Cantidad total o aproximada de residuos generados:
+Clasificación de residuos (orgánicos, reciclables, peligrosos, electrónicos):
+Porcentaje de residuos reciclados o reutilizados:
+Realiza la gestión y manejo de residuos peligrosos Si/No:
+
+e) Impacto a la biodiversidad
+Afecta de alguna manera ña flora y fauna local Si/No:
+Cumple las normas ambientales de la autoridad local y federal Si/No:
+Cuenta con proyectos de compensación ambiental Si/No:
+
+f) Riesgos ambientales
+Tiene identificados riesgos ambientales (derrames, incendios, emisiones) Si/No:
+Cuenta con planes de mitigación y contingencias Si/No:
+
+✅ 2. CRITERIOS SOCIALES (S)
+
+Evalúan la relación de la organización con las personas: empleados, comunidad, proveedores y clientes.
+
+a) Empleados
+Número de empleados por género, edad.
+Hombres:
+Mujeres:
+Edad mayor:
+Edad menor:
+
+Realiza rotación de personal Si/No:
+Cuenta con equidad salarial Si/No:
+Horas de capacitación anual por empleado:
+Cuenta con protocolos de seguridad y salud ocupacional Si/No:
+Cuenta con beneficios laborales Si/No:
+
+b) Diversidad, inclusión y equidad
+Cuenta con Políticas de igualdad de oportunidades Si/No:
+Tiene mujeres en puestos directivos Si/No:
+En la empresa laboran personas con discapacidad Si/No:
+
+c) Relaciones con la comunidad
+Cuenta con programas de responsabilidad social Si/No:
+Cuenta con proyectos comunitarios o donaciones a comunidades de la poblacion Si/No:
+Cuenta con mecanismos para resolver quejas Si/No:
+
+d) Ética con proveedores
+Cuenta con mecanismos de selección de proveedores responsables Si/No:
+
+e) Privacidad y protección de datos
+Cuenta con políticas de seguridad de información Si/No:
+Número de incidentes de filtración o mal manejo de datos:
+
+f) Satisfacción de clientes/usuarios
+Cuenta con encuestas de satisfacción Si/No:
+Cantidad de quejas recibidas y atendidas:
+Cuenta con Políticas de calidad y servicio:
+
+✅ 3. CRITERIOS DE GOBERNANZA (G)
+
+Evalúan cómo está organizada la institución internamente y su comportamiento ético y transparente.
+
+a) Estructura de gobierno
+Cuenta con Organigrama Si/No::
+Cuenta con un consejo directivo o comité responsable Si/No:
+Existe un documento de roles y responsabilidades claras Si/No:
+
+b) Transparencia
+Se publican informes o estados financieros Si/No:
+Existe acceso a información para empleados y stakeholders Si/No:
+Cuenta con procesos de auditoría interna y externa Si/No:
+
+c) Cumplimiento normativo
+Se cumplende leyes federales, estatales y locales Si/No:
+Cuenta con alguna Certificacion (ISO 9001, ISO 14001, NOMs, etc.) Si/No:      Cual?:
+Existe en su historial alguna sanciones o multa Si/No:
+
+d) Ética y anticorrupción
+Cuenta con un código de ética institucional Si/No:
+Cuenta con un canal de denuncias Si/No:
+Cuenta con políticas contra el soborno y corrupción Si/No:
+
+e) Gestión de riesgos
+Identifica de riesgos operativos, financieros y tecnológicos Si/No:
+Cuenta con planes de emergencia y recuperación ante desastres Si/No:
+
+f) Ciberseguridad y tecnología
+Cuenta con Políticas de seguridad informática Si/No:
+cuenta con un proceso de evaluación de vulnerabilidades Si/No:
+Cuenta con controles de acceso y auditorías IT Si/No:

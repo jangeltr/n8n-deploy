@@ -1,0 +1,44 @@
+services:
+  # --- Micro Reto 1: Entrada (Input) ---
+  n8n-reto1:
+    image: n8nio/n8n  # <--- CORREGIDO
+    container_name: n8n-modulo-entrada
+    ports:
+      - "5678:5678"
+    volumes:
+      - n8n_data_1:/home/node/.n8n
+    networks:
+      - hackatec-network
+
+  # --- Micro Reto 2: Agente IA (Brain) ---
+  n8n-reto2:
+    image: n8nio/n8n  # <--- CORREGIDO
+    container_name: n8n-modulo-ia
+    ports:
+      - "5679:5678"
+    volumes:
+      - n8n_data_2:/home/node/.n8n
+    networks:
+      - hackatec-network
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+
+  # --- Micro Reto 3: Diseño (Output) ---
+  n8n-reto3:
+    image: n8nio/n8n  # <--- CORREGIDO
+    container_name: n8n-modulo-diseno
+    ports:
+      - "5680:5678"
+    volumes:
+      - n8n_data_3:/home/node/.n8n
+    networks:
+      - hackatec-network
+
+networks:
+  hackatec-network:
+    driver: bridge
+
+volumes:
+  n8n_data_1:
+  n8n_data_2:
+  n8n_data_3:

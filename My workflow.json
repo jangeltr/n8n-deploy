@@ -1,0 +1,166 @@
+{
+  "name": "My workflow",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "filters": {}
+      },
+      "type": "n8n-nodes-base.gmailTrigger",
+      "typeVersion": 1.3,
+      "position": [
+        0,
+        0
+      ],
+      "id": "96ca661a-0578-4f1e-95a5-dd7077231336",
+      "name": "Gmail Trigger",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "TBcEZXfak1zud2v0",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "whatsapp",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 2.1,
+      "position": [
+        0,
+        224
+      ],
+      "id": "ccc9d5ca-dc47-48ef-823e-dadf0416a9d6",
+      "name": "Webhook",
+      "webhookId": "e23310d5-528c-491a-a724-02be92aa223f"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5d7e317f-54a8-47ff-94b3-f7e98723c626",
+              "name": "mensaje_cliente",
+              "value": "={{ $json.body.Body }}",
+              "type": "string"
+            },
+            {
+              "id": "7bcc5ab2-d99b-42b1-a0c4-60af0968a783",
+              "name": "contacto_cliente",
+              "value": "={{ $json.body.From }}",
+              "type": "string"
+            },
+            {
+              "id": "8614d857-fb46-4a75-9e9f-2e81ef361b04",
+              "name": "canal",
+              "value": "WhatsApp",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        224,
+        224
+      ],
+      "id": "44779a0d-c0a1-4f4e-ba6b-967c40655560",
+      "name": "Formato WhatsApp"
+    },
+    {
+      "parameters": {
+        "assignments": {
+          "assignments": [
+            {
+              "id": "5d7e317f-54a8-47ff-94b3-f7e98723c626",
+              "name": "mensaje_cliente",
+              "value": "={{ $json.snippet }}",
+              "type": "string"
+            },
+            {
+              "id": "7bcc5ab2-d99b-42b1-a0c4-60af0968a783",
+              "name": "contacto_cliente",
+              "value": "={{ $json.From }}",
+              "type": "string"
+            },
+            {
+              "id": "8614d857-fb46-4a75-9e9f-2e81ef361b04",
+              "name": "canal",
+              "value": "Email",
+              "type": "string"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 3.4,
+      "position": [
+        224,
+        0
+      ],
+      "id": "62b62c0a-37fe-468a-bd5d-bfdf712cd124",
+      "name": "Formato Email"
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.3,
+      "position": [
+        528,
+        112
+      ],
+      "id": "f207b980-3527-4721-84e4-8839b1c770ad",
+      "name": "HTTP Request"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Gmail Trigger": {
+      "main": [
+        [
+          {
+            "node": "Formato Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "Formato WhatsApp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": true,
+  "settings": {
+    "executionOrder": "v1"
+  },
+  "versionId": "62af2084-370a-48d1-81c5-4c2a125188b3",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "2a42cd0a7a38a3f9685788ddc8522597665d9f37e2caa17a12acd4cd87269e03"
+  },
+  "id": "s5ZiQ8u3ssk4bKys",
+  "tags": []
+}
