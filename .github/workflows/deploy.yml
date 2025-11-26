@@ -10,19 +10,23 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      # 1️⃣ Checkout del repo
       - name: Checkout
         uses: actions/checkout@v4
 
+      # 2️⃣ Configurar SSH
       - name: Setup SSH
         uses: webfactory/ssh-agent@v0.7.0
         with:
           ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
+      # 3️⃣ Agregar VPS a known_hosts
       - name: Add VPS to known_hosts
         run: |
           mkdir -p ~/.ssh
           echo "${{ secrets.SSH_KNOWN_HOSTS }}" >> ~/.ssh/known_hosts
 
+      # 4️⃣ Copiar archivos al VPS
       - name: Copy project files to VPS
         run: |
           rsync -avz --delete \
@@ -30,25 +34,27 @@ jobs:
             ./ \
             ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:${{ secrets.DEPLOY_DIR }}
 
+      # 5️⃣ Restaurar volúmenes de n8n en el VPS
       - name: Extract n8n data volumes in VPS
         run: |
-          ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << EOF
           cd ${{ secrets.DEPLOY_DIR }}
 
-          # Create docker volumes
-          docker volume create n8n_data_1
-          docker volume create n8n_data_2
-          docker volume create n8n_data_3
+          # Crear los volúmenes si no existen
+          docker volume create n8n_data_1 || true
+          docker volume create n8n_data_2 || true
+          docker volume create n8n_data_3 || true
 
-          # Restore data to volumes
-          docker run --rm -v n8n_data_1:/volume -v $(pwd)/vps-deploy:/backup alpine sh -c "cd /volume && tar xzvf /backup/n8n_data_1.tar.gz"
-          docker run --rm -v n8n_data_2:/volume -v $(pwd)/vps-deploy:/backup alpine sh -c "cd /volume && tar xzvf /backup/n8n_data_2.tar.gz"
-          docker run --rm -v n8n_data_3:/volume -v $(pwd)/vps-deploy:/backup alpine sh -c "cd /volume && tar xzvf /backup/n8n_data_3.tar.gz"
+          # Restaurar datos desde los tar.gz
+          docker run --rm -v n8n_data_1:/volume -v \$(pwd)/vps-deploy:/backup alpine sh -c "cd /volume && tar xzvf /backup/n8n_data_1.tar.gz"
+          docker run --rm -v n8n_data_2:/volume -v \$(pwd)/vps-deploy:/backup alpine sh -c "cd /volume && tar xzvf /backup/n8n_data_2.tar.gz"
+          docker run --rm -v n8n_data_3:/volume -v \$(pwd)/vps-deploy:/backup alpine sh -c "cd /volume && tar xzvf /backup/n8n_data_3.tar.gz"
           EOF
 
+      # 6️⃣ Levantar los contenedores de n8n
       - name: Start services in VPS
         run: |
-          ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          ssh -p ${{ secrets.SSH_PORT }} ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << EOF
           cd ${{ secrets.DEPLOY_DIR }}
           docker compose pull
           docker compose up -d --force-recreate
