@@ -46,5 +46,8 @@ networks:
 
 volumes:
   n8n_data_1:
+    external: true
   n8n_data_2:
+    external: true
   n8n_data_3:
+    external: true
