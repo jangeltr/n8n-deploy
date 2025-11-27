@@ -1,1 +1,1 @@
-este proyecto es del hackatec y vamos en el paso 3
+este proyecto es del hackatec y vamos en el paso 3 y ya estos en CI/CD
